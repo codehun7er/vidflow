@@ -1,0 +1,18 @@
+services:
+  postgres:
+    container_name: vidflow-db
+    image: postgres:latest
+    ports:
+      - '5433:5432'
+    expose:
+      - 5433
+    environment:
+      - POSTGRES_DB=vidflow
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+    driver: local
